@@ -1,0 +1,246 @@
+
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  /* display: block; */
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Root styles */
+
+:root {
+    /* Neutral Colors */
+    --clr-gray-500: hsl(0, 0%, 59%);
+    --clr-blue-900: hsl(209, 33%, 12%);
+    --clr-white: hsl(0, 0%, 100%);;
+
+    /* Accent Colors */
+    --clr-blue-500: hsl(223, 87%, 63%);
+    --clr-blue-400: hsl(223, 100%, 70%);
+    --clr-blue-100: hsl(223, 100%, 88%);
+    --clr-red-400: hsl(354, 100%, 66%);
+
+    /* Typography */
+    --fs-normal: 1.25rem;
+    --fs-title: 2.125rem;
+    --ff-main: "Libre Franklin", sans-serif;
+    --fw-normal: 300;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+}
+
+/* General Styles */
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    font-family: var(--ff-main);
+    color: var(--clr-blue-900);
+    font-weight: var(--fw-normal);
+    text-align: center;
+    padding-block: 2.5rem;
+}
+
+main {
+    padding-top: 1.25rem;
+    padding-bottom: 4rem;
+}
+
+/* Form and iput styles */
+
+.form {
+    padding-block: 1rem 2rem;
+    display: grid;
+    gap: 1rem;
+    padding-inline: 1rem;
+}
+
+.input-container {
+    display: grid;
+    gap: .5rem;
+    width: 100%;
+    padding-inline: 1rem;
+}
+
+input {
+    border: none;
+    outline: 1px solid var(--clr-blue-100);
+    color: var(--clr-gray-500);
+    padding: 1rem;
+    padding-left: 2rem;
+    border-radius: 999px;
+}
+
+input::placeholder {
+    color: var(--clr-blue-100);
+}
+
+.submit-btn {
+    cursor: pointer;
+    border: none;
+    padding: 1rem;
+    border-radius: 999px;
+
+    background-color: var(--clr-blue-500);
+    color: var(--clr-white);
+    box-shadow: 0 7.5px 15px var(--clr-blue-100);
+    font-weight: var(--fw-semi-bold);
+}
+
+.submit-btn, .fa-brands {
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--clr-blue-400);
+}
+
+/* form validation styles */
+
+.email-input:not(:placeholder-shown):valid { /* when placeholder is visible disable these styles (better browser support than user-valid)*/
+    outline-color: limegreen;
+}
+
+.email-input:not(:placeholder-shown):invalid {
+    outline-color: var(--clr-red-400);
+}
+
+/* typography */
+
+h1 span {
+    color: var(--clr-gray-500);
+    font-weight: var(--fw-normal)
+}
+
+footer small {
+    color: var(--clr-gray-500);
+}
+
+/* icon styles */
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.25rem; /* font awesome icons are treated as text */
+
+}
+
+.fa-brands {
+    border: 1px solid var(--clr-blue-100);
+    border-radius: 50%;
+    padding: .5rem;
+    color: hsl(223, 87%, 63%);
+
+    display: inline-block;  
+    padding: 10px; 
+    border-radius: 50%; 
+}
+
+/* Link styles */
+
+a:hover .fa-brands {
+    border-radius: 50%;
+    background-color: var(--clr-blue-500);
+    color: white;
+}
+
+.error-msg {
+    color: var(--clr-red-400);
+    font-style: italic;
+}
+
+.error-msg-landscape {
+    color: var(--clr-red-400);
+    font-style: italic;
+    display: none;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 700px) {
+
+    /* general layout */
+
+    .input-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* choosing which error msg to display */
+
+    .error-msg {
+        display: none;
+    }
+
+    .error-msg-landscape {
+        display: block;
+        text-align: left;
+        padding-left: 2.5rem;
+    }
+
+    main {
+        display: grid;
+    }
+
+    /* element max-widths */
+
+    picture {
+        max-width: 700px;
+    }
+
+    /* individual input styles */
+
+    .email-input {
+        width: 100%;
+    }
+
+    .submit-btn {
+        padding-inline: 5rem;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 700px)  {
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+
+}
+
